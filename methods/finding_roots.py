@@ -64,12 +64,3 @@ class FindingRoots:
                 a, f_a = c, f_c
             iteration += 1
         return Result(True, c, iteration - 1)
-
-
-def f(x):
-    return np.sin(x)
-
-
-fr = FindingRoots()
-# fr.graphical_method(f, -5, 5)
-fr.bisection_method(f, 2, 4)
