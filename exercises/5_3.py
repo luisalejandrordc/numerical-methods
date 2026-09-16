@@ -11,5 +11,5 @@ def f(x):
 
 
 fr = FindingRoots(precision=0.002)
-fr.graphical_method(f, 0.5, 1.0)
+# fr.graphical_method(f, 0.5, 1.0)
 fr.bisection_method(f, 0.5, 1.0)

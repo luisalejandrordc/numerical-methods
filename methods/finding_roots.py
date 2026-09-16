@@ -16,7 +16,7 @@ class FindingRoots:
     def __init__(
         self,
         max_iterations: int = 10,
-        precision: float = 0.001,
+        precision: float = 0.0001,
         print_iterations: bool = True,
     ) -> None:
         self.max_iterations = max_iterations
@@ -52,10 +52,10 @@ class FindingRoots:
             f_c = f(c)
             if self.print_iterations:
                 print(f"Iteration {iteration}:", end="\t")
-                print(f"a = {a:.5f}", end="\t")
-                print(f"b = {b:.5f}", end="\t")
-                print(f"c = {c:.5f}", end="\t")
-                print(f"f(c) = {f_c:.5f}")
+                print(f"a = {a:.6f}", end="\t")
+                print(f"b = {b:.6f}", end="\t")
+                print(f"c = {c:.6f}", end="\t")
+                print(f"f(c) = {f_c:.6f}")
             if abs(f_c) <= self.precision:
                 return Result(True, c, iteration)
             if self._opposite_signs(f_a, f_c):
@@ -63,4 +63,4 @@ class FindingRoots:
             else:
                 a, f_a = c, f_c
             iteration += 1
-        return Result(True, c, iteration - 1)
+        return Result(True, c, self.max_iterations)
