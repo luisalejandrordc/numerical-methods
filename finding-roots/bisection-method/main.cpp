@@ -41,10 +41,13 @@ public:
       }
       if (std::abs(f_c) <= PRECISION)
         return {true, c, iter};
-      if (oppositeSigns(f_a, f_c))
+      if (oppositeSigns(f_a, f_c)) {
         b = c;
-      else
+        f_b = f_c;
+      } else {
         a = c;
+        f_a = f_c;
+      }
     }
     return {true, c, MAX_ITERATIONS};
   }
